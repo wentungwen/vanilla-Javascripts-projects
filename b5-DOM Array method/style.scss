@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --primary-light: rgb(219, 232, 246);
+  --primary-dark: rgb(27, 53, 82);
+}
+
+@mixin font($a, $b, $c) {
+  font-weight: $a;
+  font-size: $b;
+  color: $c;
+}
+
+%flexBasic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%buttonText {
+  button {
+    border: none;
+    padding: 8px 12px;
+    letter-spacing: 1px;
+    background-color: var(--primary-dark);
+    width: 12rem;
+    margin: 0.5rem 0;
+    text-align: left;
+    @include font(300, 1.1rem, var(--primary-light));
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      transition: 0.2s;
+    }
+    &:focus,
+    &:active {
+      outline: 0;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+  height: 100vh;
+  // overflow: hidden;
+  margin: 0;
+  background-color: var(--primary-light);
+}
+h1 {
+  color: var(--primary-dark);
+  text-align: center;
+  margin: 3rem 0;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+
+  & aside {
+    width: 250px;
+    @extend %buttonText;
+    border-right: 2px var(--primary-dark) solid;
+    display: flex;
+    align-items: center;
+  }
+  & main {
+    width: 500px;
+    padding: 0 1rem;
+
+    & h2 {
+      float: left;
+      @include font(500, 1.2rem, --primary-dark);
+      border-bottom: 2px solid var(--primary-dark);
+      padding: 0.3rem 0;
+    }
+    & strong {
+      float: right;
+      @include font(500, 1.2rem, --primary-dark);
+    }
+  }
+
+  & aside,
+  & main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+h4 span {
+  float: right;
+}
+.totalWealth {
+  border-top: 2px solid #000;
+}
